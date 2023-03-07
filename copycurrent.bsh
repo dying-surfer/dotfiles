@@ -11,6 +11,7 @@ function cptorepo(){
 # Bash
 cptorepo ".bashrc"
 cptorepo ".bash_profile"
+cptorepo ".git-prompt.bsh"
 
 # Vim
 cptorepo ".vimrc"
