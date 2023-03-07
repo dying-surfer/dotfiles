@@ -13,7 +13,7 @@ then
 fi
 
 THISDIR=$(dirname "$(realpath "${BASH_SOURCE}")")
-FILES=('.bashrc' '.bash_profile' '.git-prompt.bsh' '.vimrc' '.tmux.conf')
+FILES=('.bashrc' '.bash_profile' '.git-prompt.bsh' '.vimrc' '.tmux.conf', '.dircolors')
 MODE="$1"
 
 function cptorepo(){
