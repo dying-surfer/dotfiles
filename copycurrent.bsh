@@ -1,0 +1,19 @@
+#!/bin/bash
+# 
+# Dieses Skript kopiert die aktuellen Konfi-Files
+
+TARGETROOT=$(dirname "$(realpath "${BASH_SOURCE}")")
+
+function cptorepo(){
+   cp "${HOME}/${1}" "${TARGETROOT}/${1}" 
+}
+
+# Bash
+cptorepo ".bashrc"
+cptorepo ".bash_profile"
+
+# Vim
+cptorepo ".vimrc"
+
+# Tmux
+cptorepo ".tmux.conf"
