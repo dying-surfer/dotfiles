@@ -1,12 +1,13 @@
 " Allgemein
-set number
-set relativenumber
-set mouse=a
-set wildmenu
-set wildignorecase
-set laststatus=2
+set nocompatible            " Kein VI Mode
+set number                  " Zeilennummern
+set relativenumber          " Relative Zeilennummern
+set mouse=a                 " Maus aktivieren
+set wildmenu                " <tab> zeigt Matches als Menü
+set wildignorecase          " Case insensitiv ^
+set laststatus=2            " Statuszeile immer an
 
-" Case insensitive, außer man gibt Großbuchstaben ein
+" Case insensitive bei Suche, außer man gibt Großbuchstaben ein
 " Kann mit \c im Suchstring wieder auf insensitve gestzt werden
 set ignorecase
 set smartcase
