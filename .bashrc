@@ -87,7 +87,8 @@ function debug() {
 }
 
 function cheat(){
-  curl cht.sh/${1} | less 
+  # ?T => ohne Farben
+  curl --silent "cht.sh/${1}?T" | less 
 }
 
 # Sucht den ersten match und startet less
