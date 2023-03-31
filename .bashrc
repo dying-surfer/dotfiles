@@ -103,10 +103,28 @@ function loss(){
   less -S $opt ${1}
 }
 
+function tailgrep(){
+  tail -n+1 -f "$2" | grep --line-buffered "$1"
+}
+
 # grep project. Ignoriert .idea und .git
 function grepp(){
   grep -Iirn --exclude-dir={.idea,.git} ${1}
 }
+
+function gitoverview(){
+    for d in "${1:-$(pwd)}"/*/.git; do
+        r=${d%.git}
+        echo "$r"
+        git -C "$r" log \
+            --since="{$2:-1week}" \
+            --committer="lwescr22" \
+            --reverse \
+            --pretty='format:%h  %cd  %s'
+    done
+}
+
+
 
 #-------------------------------------------------------------------------------
 # PS ...

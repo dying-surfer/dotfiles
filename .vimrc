@@ -17,7 +17,7 @@ set tabstop=4
 set shiftwidth=4
 set autoindent
 set expandtab
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+silent! set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 " set list
 
 " Color
