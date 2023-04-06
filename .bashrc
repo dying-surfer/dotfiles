@@ -104,7 +104,12 @@ function loss(){
 }
 
 function tailgrep(){
-  tail -n+1 -f "$2" | grep --line-buffered "$1"
+  tail -n+1 -F "$2" | grep --line-buffered "$1"
+}
+
+function space(){
+  # Extra newline => better readability with linewrapping
+  sed 's/$/\n/g'
 }
 
 # grep project. Ignoriert .idea und .git
