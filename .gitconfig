@@ -1,0 +1,50 @@
+[user]
+    name = "lwescr22"
+    email = ralph.schneller@liebherr.com
+
+[alias]
+    # one-line log
+    l = log --pretty=format:"%C(yellow)%h%Creset\\ %as\\ %Cblue%an\\ %Creset%s\\%Cred%d" --graph --all --decorate-refs-exclude=*_webapps_*
+	h = l -10
+    head = l -10
+    lt = log --pretty=format:"%C(yellow)%h%Creset\\ %as\\ %Cblue%an\\ %Creset%s\\%Cred%d" --graph --all
+
+    # Commiting
+    a      = add
+    ca     = !git add . && git commit -s
+    cam    = !git add . && git commit -sm
+    camend = !git add . && git commit --amend
+
+    # Diff
+    d = diff
+    ds = diff --cached
+    da = !git diff && git diff --cached 
+
+    # Branches
+    sc = switch -c
+    co = checkout
+    ms = merge --squash
+
+    # Status
+    s     = status -s
+    info  = !cal -m --color=always && echo '' && git branch && echo '' && git status && echo '' && git l -15
+    sinfo = !pwd && echo '' && git branch && echo '' && git status && echo '' && git l -6
+    watch = !watch -c git info
+    swatch = !watch -c git sinfo
+    untracked = ls-files --others --ignored --exclude-from=.gitignore     
+
+    # list aliases
+    la = "!git config -l | grep alias | cut -c 7-"
+
+[pull]
+    rebase = true
+[core]
+	autocrlf = input
+	pager = bat -p
+[merge]
+    tool = vimdiff
+    conflictstyle = diff3
+
+    fileMode = false
+[url "ssh://git@lissvtaskwiki02.dmz.liebherr.com:7999/lwepse"]
+	insteadOf = bb:
