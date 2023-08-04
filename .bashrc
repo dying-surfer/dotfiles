@@ -129,7 +129,10 @@ function gitoverview(){
     done
 }
 
-
+# curl with kerberos
+function kurl(){
+   curl --negotiate -u : $@
+}
 
 #-------------------------------------------------------------------------------
 # PS ...
