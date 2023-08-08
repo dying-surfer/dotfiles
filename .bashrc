@@ -73,9 +73,8 @@ function ps1long(){
     GIT_PS1_SHOWDIRTYSTATE=true
     GIT_PS1_SHOWUNTRACKEDFILES=true  
     GIT_PS1_SHOWUPSTREAM="verbose git"  
-    HOSTCOLOR=$GREEN
 
-    PS1="${GREEN}\u@${HOSTCOLOR}\h:${YELLOW}\w ${PURPLE}\s ${CYAN}\$(__git_ps1 "%s")\$(rcsymbol)\n\$${RESTORE} "
+    PS1="${GREEN}\u@${GREEN}\h:${YELLOW}\w ${CYAN}\$(__git_ps1 "%s")\$(rcsymbol)\n\$${RESTORE} "
 }
 
 function ps4default(){
@@ -132,6 +131,15 @@ function gitoverview(){
 # curl with kerberos
 function kurl(){
    curl --negotiate -u : $@
+}
+
+# TMUX Home Session 
+function tmuxa(){
+    tmux new-session -A -s main
+}
+
+function share(){
+  python3 -m http.server 1337
 }
 
 #-------------------------------------------------------------------------------
