@@ -6,6 +6,8 @@ set mouse=a                 " Maus aktivieren
 set wildmenu                " <tab> zeigt Matches als Menü
 set wildignorecase          " Case insensitiv ^
 set laststatus=2            " Statuszeile immer an
+set belloff=esc             " Nerviges Blinken in git Bash/Windows
+
 
 " Case insensitive bei Suche, außer man gibt Großbuchstaben ein
 " Kann mit \c im Suchstring wieder auf insensitve gestzt werden
