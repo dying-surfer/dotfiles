@@ -133,6 +133,11 @@ function kurl(){
    curl --negotiate -u : $@
 }
 
+# curl with kerberos und xdebug
+function xkurl(){
+   curl -b XDEBUG_SESSION=lwescr22 --negotiate -u : $@
+}
+
 # TMUX Home Session 
 function tmuxa(){
     tmux new-session -A -s main
