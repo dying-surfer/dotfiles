@@ -12,21 +12,9 @@ if [ -f "$HOME/.bashrc_extension" ]; then
 fi
 
 # Colors
-BLACK=$(tput setaf 0)
-RED=$(tput setaf 1)
-GREEN=$(tput setaf 2)
-YELLOW=$(tput setaf 3)
-LIME_YELLOW=$(tput setaf 190)
-POWDER_BLUE=$(tput setaf 153)
-BLUE=$(tput setaf 4)
-MAGENTA=$(tput setaf 5)
-CYAN=$(tput setaf 6)
-WHITE=$(tput setaf 7)
-BRIGHT=$(tput bold)
-NORMAL=$(tput sgr0)
-BLINK=$(tput blink)
-REVERSE=$(tput smso)
-UNDERLINE=$(tput smul)
+RESTORE='\[\033[0m\]'
+RED='\[\033[00;31m\]'; GREEN='\[\033[00;32m\]'; YELLOW='\[\033[00;33m\]'; BLUE='\[\033[00;34m\]'; PURPLE='\[\033[00;35m\]'; CYAN='\[\033[00;36m\]'; LIGHTGRAY='\[\033[00;37m\]';
+LRED='\[\033[01;31m\]'; LGREEN='\[\033[01;32m\]'; LYELLOW='\[\033[01;33m\]'; LBLUE='\[\033[01;34m\]'; LPURPLE='\[\033[01;35m\]'; LCYAN='\[\033[01;36m\]'; WHITE='\[\033[01;37m\]';
 
 [ -e ~/.dircolors ] && eval $(dircolors -b ~/.dircolors) || 
   eval $(dircolors -b)
@@ -63,9 +51,9 @@ alias cal="cal -mw"
 # Return-code Farbe für ps1long
 function rcsymbol(){
     if [ ! $? -eq 0 ]; then
-        echo -e "${RED}"
+        echo -e "\033[00;31m"
     else
-	    echo -e "${NORMAL}"
+	    echo -e "\033[0m"
     fi
 }
 
@@ -76,7 +64,7 @@ function ps1short(){
         HOSTCOLOR=$RED
     fi
 
-    PS1="${GREEN}\u@${HOSTCOLOR}\h:${YELLOW}\W\$(rcsymbol)\$${NORMAL} "
+    PS1="${GREEN}\u@${HOSTCOLOR}\h:${YELLOW}\W\$(rcsymbol)\$${RESTORE} "
 }
 
 # Ausführliche PS1 mit Git info etc,
@@ -84,15 +72,9 @@ function ps1long(){
     source ~/.git-prompt.bsh
     GIT_PS1_SHOWDIRTYSTATE=true
     GIT_PS1_SHOWUNTRACKEDFILES=true  
-    GIT_PS1_SHOWUPSTREAM="verbose git" 
-    HOST="$GREEN"
-    
-    if [ "$HOSTNAME" != "lwesu0319" ]; then
-      HOST="$RED"
-    fi
+    GIT_PS1_SHOWUPSTREAM="verbose git"  
 
-
-    PS1="${GREEN}\u@${HOST}\h:${YELLOW}\w ${CYAN}\$(__git_ps1 "%s")\$(rcsymbol)\n\$${NORMAL} "
+    PS1="${GREEN}\u@${GREEN}\h:${YELLOW}\w ${CYAN}\$(__git_ps1 "%s")\$(rcsymbol)\n\$${RESTORE} "
 }
 
 function ps4default(){
@@ -121,8 +103,7 @@ function loss(){
 }
 
 function tailgrep(){
-  #tail -n+1 -F "$2" | grep --line-buffered "$1"
-  tail -n100 -F "$2" | grep --line-buffered "$1"
+  tail -n+1 -F "$2" | grep --line-buffered "$1"
 }
 
 function space(){
