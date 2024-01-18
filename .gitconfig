@@ -8,23 +8,23 @@
     head = l -10
     lt = log --pretty=format:"%C(yellow)%h%Creset\\ %as\\ %Cblue%an\\ %Creset%s\\%Cred%d" --graph --all
 
-    # Commiting
+    # commits
     a      = add
     ca     = !git add . && git commit -s
     cam    = !git add . && git commit -sm
     camend = !git add . && git commit --amend
 
-    # Diff
+    # diff
     d = diff
     ds = diff --cached
     da = !git diff && git diff --cached 
 
-    # Branches
+    # branches
     sc = switch -c
     co = checkout
     ms = merge --squash
 
-    # Status
+    # status
     s     = status -s
     info  = !cal -m --color=always && echo '' && git branch && echo '' && git status && echo '' && git l -15
     sinfo = !pwd && echo '' && git branch && echo '' && git status && echo '' && git l -6
@@ -38,10 +38,9 @@
 [pull]
     rebase = true
 [core]
-	autocrlf = input
-	pager = bat -p
+    autocrlf = input
+    pager = bat -p
 [merge]
     tool = vimdiff
     conflictstyle = diff3
-
     fileMode = false

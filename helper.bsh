@@ -1,6 +1,5 @@
 #!/bin/bash
-# 
-# Dieses Skript kopiert die aktuellen Konfi-Files
+
 function usage(){
   echo "USAGE: ${BASH_SOURCE} install|steal"
   echo "install: copy files to $HOME"
@@ -25,7 +24,7 @@ function install(){
 }
 
 
-for f in ${FILES[@]}; do
+for f in "${FILES[@]}"; do
   if [[ "$1" = i* ]]
   then
     cp "${THISDIR}/${f}" "${HOME}/${f}"

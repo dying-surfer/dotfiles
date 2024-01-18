@@ -6,7 +6,7 @@ if [ -d "$HOME/bin" ] ; then
   PATH="$HOME/bin:$PATH"
 fi
 
-# Rechner-spezifische .bashrc
+# machine specific .bashrc
 if [ -f "$HOME/.bashrc_extension" ]; then
     . "$HOME/.bashrc_extension"
 fi
@@ -24,11 +24,8 @@ export HISTCONTROL=ignoredups:erasedups # avoid duplicates..
 shopt -s histappend # append history entries.
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND" # After each command, save and reload history
 
-# Bessere Pfeiltasten-Histotie. Berücksichtigt was getippt wurde
-# Pfeil nach oben
+# better history arrow behaviour
 bind '"\e[A": history-search-backward'
-
-# Pfeil nach unten
 bind '"\e[B": history-search-forward'
 
 
@@ -40,15 +37,14 @@ bind '"\e[B": history-search-forward'
 alias ll="ls -lsh"
 alias lls="ll --color=always -lsh | less -r"
 
-## Normaler Kalender :)
+# german style calender
 alias cal="cal -mw"
-
 
 #-------------------------------------------------------------------------------
 # Functions
 #-------------------------------------------------------------------------------
 
-# Return-code Farbe für ps1long
+# color based on return code
 function rcsymbol(){
     if [ ! $? -eq 0 ]; then
         echo -e "\033[00;31m"
@@ -57,7 +53,7 @@ function rcsymbol(){
     fi
 }
 
-# Sehr einfache ps1
+# simple prompt
 function ps1short(){
     HOSTCOLOR=$GREEN
     if [ ! "$(hostname)" = "lwesu0319" ]; then
@@ -67,7 +63,7 @@ function ps1short(){
     PS1="${GREEN}\u@${HOSTCOLOR}\h:${YELLOW}\W\$(rcsymbol)\$${RESTORE} "
 }
 
-# Ausführliche PS1 mit Git info etc,
+# informative prompt
 function ps1long(){
     source ~/.git-prompt.bsh
     GIT_PS1_SHOWDIRTYSTATE=true
@@ -85,7 +81,7 @@ function debug() {
     PS4="$PS4"'$(read -p "==================================== ENTER ====================================")' bash -vx "$@"    
 }
 
-# Sucht den ersten match und startet less
+# less for logfiles
 function loss(){
   if [ -z "${2}" ]; then
     # To the end
@@ -97,25 +93,28 @@ function loss(){
   less -S $opt ${1}
 }
 
+# greping in tail
 function tailgrep(){
   tail -n+1 -F "$2" | grep --line-buffered "$1"
 }
 
+# add newlines for readability with line wrapping
 function space(){
   # Extra newline => better readability with linewrapping
   sed 's/$/\n/g'
 }
 
-# grep project. Ignoriert .idea und .git
+# grep project, ignoring .git and .idea
 function grepp(){
   grep -Iirn --exclude-dir={.idea,.git} ${1}
 }
 
-# TMUX Home Session
+# tmux attach or create main session
 function tmuxa(){
     tmux new-session -A -s main
 }
 
+# spin up webserver for fast filesharing
 function share(){
   python3 -m http.server 1337
 }

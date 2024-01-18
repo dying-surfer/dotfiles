@@ -1,20 +1,18 @@
-" Allgemein
-set nocompatible            " Kein VI Mode
-set number                  " Zeilennummern
-set relativenumber          " Relative Zeilennummern
-set mouse=a                 " Maus aktivieren
-set wildmenu                " <tab> zeigt Matches als Menü
-set wildignorecase          " Case insensitiv ^
-set laststatus=2            " Statuszeile immer an
-set belloff=esc             " Nerviges Blinken in git Bash/Windows
+" basic
+set nocompatible            " no vi mode
+set number
+set relativenumber
+set mouse=a
+set wildmenu                " <tab> shows menu
+set wildignorecase          " case insensitiv ^
+set laststatus=2            " always show status bar
+set belloff=esc             " no blinking in some terminals
 
-
-" Case insensitive bei Suche, außer man gibt Großbuchstaben ein
-" Kann mit \c im Suchstring wieder auf insensitve gestzt werden
+" case insensitive search, disable with uppercase letter
 set ignorecase
 set smartcase
 
-" Tabs, Whitespace, etc.
+" tabs, whitespace, ...
 set tabstop=4
 set shiftwidth=4
 set autoindent
@@ -22,32 +20,31 @@ set expandtab
 silent! set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 " set list
 
-" Color
+" color
 set background=dark
 
 " netrw browser
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
 
-" Mapping mit ] ist mist...
+" german layout
 nnoremap ü <C-]>
 
-" Filebrowser & Suche
+" browsing & searching
 nnoremap ,E :Texplore<CR>
 nnoremap ,e :Explore<CR>
 nnoremap ,F :tabe **/*
 nnoremap ,f :e **/*
 
-" Suchergebnisse in der Mitte des Viewports 
+" display search results in middle of viewport
 nnoremap n nzz
 nnoremap N Nzz
 
-" Such-Highlighting
+" un-highlight search results
 nnoremap <C-L> :nohl<CR>
 
 
-
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim color file Disco
 " Maintainer: [jsit] <jay@jaysitter.com>
 " Last Change:  
