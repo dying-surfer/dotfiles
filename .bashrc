@@ -85,11 +85,6 @@ function debug() {
     PS4="$PS4"'$(read -p "==================================== ENTER ====================================")' bash -vx "$@"    
 }
 
-function cheat(){
-  # ?T => ohne Farben
-  curl --silent "cht.sh/${1}?T" | less 
-}
-
 # Sucht den ersten match und startet less
 function loss(){
   if [ -z "${2}" ]; then
@@ -116,29 +111,7 @@ function grepp(){
   grep -Iirn --exclude-dir={.idea,.git} ${1}
 }
 
-function gitoverview(){
-    for d in "${1:-$(pwd)}"/*/.git; do
-        r=${d%.git}
-        echo "$r"
-        git -C "$r" log \
-            --since="{$2:-1week}" \
-            --committer="lwescr22" \
-            --reverse \
-            --pretty='format:%h  %cd  %s'
-    done
-}
-
-# curl with kerberos
-function kurl(){
-   curl --negotiate -u : $@
-}
-
-# curl with kerberos und xdebug
-function xkurl(){
-   curl -b XDEBUG_SESSION=lwescr22 --negotiate -u : $@
-}
-
-# TMUX Home Session 
+# TMUX Home Session
 function tmuxa(){
     tmux new-session -A -s main
 }

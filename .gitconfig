@@ -1,6 +1,5 @@
 [user]
-    name = "lwescr22"
-    email = ralph.schneller@liebherr.com
+    name = "dying-surfer"
 
 [alias]
     # one-line log
@@ -46,5 +45,3 @@
     conflictstyle = diff3
 
     fileMode = false
-[url "ssh://git@lissvtaskwiki02.dmz.liebherr.com:7999/lwepse"]
-	insteadOf = bb:
