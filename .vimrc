@@ -43,6 +43,13 @@ nnoremap N Nzz
 " un-highlight search results
 nnoremap <C-L> :nohl<CR>
 
+" terminal
+nnoremap <C-T> :term<CR>
+tnoremap <Esc> <C-\><C-N>
+set termwinsize=12x0   " Set terminal size
+set splitbelow
+
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim color file Disco
