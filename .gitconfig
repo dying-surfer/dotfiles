@@ -39,7 +39,6 @@
     rebase = true
 [core]
     autocrlf = input
-    pager = bat -p
 [merge]
     tool = vimdiff
     conflictstyle = diff3
