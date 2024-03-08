@@ -32,3 +32,4 @@ install .gitconfig
 install .gitignore
 install .tmux.conf
 install .vimrc
+install .zshrc
