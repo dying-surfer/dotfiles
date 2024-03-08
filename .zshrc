@@ -4,10 +4,11 @@ autoload -Uz promptinit
 autoload -Uz vcs_info
 precmd() { vcs_info }
 
-zstyle ':vcs_info:git:*' formats '%b '
+zstyle ':vcs_info:git:*' formats '%b %m%u'
+zstyle ':vcs_info:git*' check-for-changes true formats '%b %m%u'
 
 setopt PROMPT_SUBST
-PROMPT='%F{green}%*%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f$ '
+PROMPT='%F{green}%*%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f $ '
 
 # promptinit
 # prompt adam1
@@ -43,3 +44,40 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+
+
+#-------------------------------------------------------------------------------
+# Basic
+#-------------------------------------------------------------------------------
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+  PATH="$HOME/bin:$PATH"
+fi
+
+
+#-------------------------------------------------------------------------------
+# Alias
+#-------------------------------------------------------------------------------
+
+# ls
+alias ll="ls -lsh"
+alias lls="ll --color=always -lsh | less -r"
+
+# german style calender
+alias cal="cal -mw"
+
+#-------------------------------------------------------------------------------
+# Functions
+#-------------------------------------------------------------------------------
+
+# greping in tail
+function tailgrep(){
+  tail -n+1 -F "$2" | grep --line-buffered "$1"
+}
+
+# tmux attach or create main session
+function tmuxa(){
+    tmux new-session -A -s main
+}
+
