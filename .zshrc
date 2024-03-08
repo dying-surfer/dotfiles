@@ -5,10 +5,11 @@ autoload -Uz vcs_info
 precmd() { vcs_info }
 
 zstyle ':vcs_info:git:*' formats '%b %m%u'
-zstyle ':vcs_info:git*' check-for-changes true formats '%b %m%u'
+zstyle ':vcs_info:git*' check-for-changes true formats '%b %m%u '
 
 setopt PROMPT_SUBST
-PROMPT='%F{green}%*%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f $ '
+PROMPT='%F{green}%n@%M%f %F{blue}%~%f %F{red}${vcs_info_msg_0_}%f
+%(?.%F{white}.%F{red})$ %f'
 
 # promptinit
 # prompt adam1
