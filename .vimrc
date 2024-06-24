@@ -49,8 +49,8 @@ tnoremap <Esc> <C-\><C-N>
 set termwinsize=12x0   " Set terminal size
 set splitbelow
 
-# tmux pasting
-# https://vi.stackexchange.com/questions/23110/pasting-text-on-vim-inside-tmux-breaks-indentation
+" tmux pasting
+" https://vi.stackexchange.com/questions/23110/pasting-text-on-vim-inside-tmux-breaks-indentation
 if &term =~ "screen"
     let &t_BE = "\e[?2004h"
     let &t_BD = "\e[?2004l"
