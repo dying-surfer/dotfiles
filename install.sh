@@ -24,6 +24,7 @@ function install(){
 
 echo "Creating backup dir ${backup_dir}"
 mkdir "${backup_dir}" || exit 1
+install .aliasrc
 install .bash_profile
 install .bashrc
 install .dircolors

@@ -32,13 +32,7 @@ bind '"\e[B": history-search-forward'
 #-------------------------------------------------------------------------------
 # Alias
 #-------------------------------------------------------------------------------
-
-# ls
-alias ll="ls -lsh"
-alias lls="ll --color=always -lsh | less -r"
-
-# german style calender
-alias cal="cal -mw"
+source ~/.aliasrc
 
 #-------------------------------------------------------------------------------
 # Functions
