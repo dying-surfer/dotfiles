@@ -1,5 +1,6 @@
 [user]
-    name = "dying-surfer"
+	name = dying-surfer
+	email = ralph.schneller@gmail.com
 
 [alias]
     # one-line log
@@ -39,6 +40,7 @@
     rebase = true
 [core]
     autocrlf = input
+	editor = vim
 [merge]
     tool = vimdiff
     conflictstyle = diff3
