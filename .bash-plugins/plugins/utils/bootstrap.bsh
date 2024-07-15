@@ -3,7 +3,8 @@
 #-------------------------------------------------------------------------------
 
 # ls
-alias ll="ls -lah"
+alias ll="ls -lh"
+alias lla="ls -lah"
 alias lls="ll --color=always -lsh | less -r"
 
 # german cal
