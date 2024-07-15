@@ -1,0 +1,48 @@
+#-------------------------------------------------------------------------------
+# Alias
+#-------------------------------------------------------------------------------
+
+# ls
+alias ll="ls -lah"
+alias lls="ll --color=always -lsh | less -r"
+
+# german cal
+alias cal="cal -mw"
+
+#-------------------------------------------------------------------------------
+# Functions
+#-------------------------------------------------------------------------------
+function ps4default(){
+    PS4='+ \e[0;33m[pid${BASHPID}][$(basename "${BASH_SOURCE}"):${LINENO}]: ${FUNCNAME[0]:+${FUNCNAME[0]}(): }\e[m';
+}
+
+function debug() {
+    PS4="$PS4"'$(read -p "==================================== ENTER ====================================")' bash -vx "$@"    
+}
+
+function cheat(){
+  # ?T => ohne Farben
+  curl --silent "cht.sh/${1}?T" | less 
+}
+
+# Sucht den ersten match und startet less
+function loss(){
+  if [ -z "${2}" ]; then
+    # To the end
+    opt="-n +G"
+  else
+    # Search pattern
+    opt="--pattern=${2}"
+  fi
+  less -S $opt ${1}
+}
+
+function tailgrep(){
+  tail -n+1 -F "$2" | grep --line-buffered "$1"
+}
+
+# TMUX Home Session 
+function tmuxa(){
+    tmux new-session -A -s main
+}
+

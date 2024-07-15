@@ -1,0 +1,18 @@
+#!/bin/bash
+
+BASH_PLUGINS_HOME="${HOME}/.bash-plugins"
+
+# first we load core plugins
+source "$BASH_PLUGINS_HOME/core/const.bsh"
+
+# next we load user plugins
+if [[ -n "$BASH_PLUGINS" ]]; then
+  for PLUGIN in "${BASH_PLUGINS[@]}"; do
+    source "$BASH_PLUGINS_HOME/plugins/$PLUGIN/bootstrap.bsh"
+  done
+fi
+
+# finally loading the theme
+if [[ -n "$BASH_THEME" ]]; then
+  source "$BASH_PLUGINS_HOME/themes/$BASH_THEME/bootstrap.bsh"
+fi

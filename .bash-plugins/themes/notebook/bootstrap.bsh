@@ -1,0 +1,17 @@
+function rcsymbol(){
+    SAVERC=$?
+    if [ ! $SAVERC -eq 0 ]; then
+      echo -e "${RED}$SAVERC"
+    else
+	    echo -e "${COLOR_OFF}"
+    fi
+}
+
+source ~/.git-prompt.bsh
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWUNTRACKEDFILES=true  
+GIT_PS1_SHOWUPSTREAM="verbose git"  
+
+PS1="${PROMPT_GREEN}  ${PROMPT_YELLOW}\w ${PROMPT_CYAN}\$(__git_ps1 \"󰊢 %s\")\$(rcsymbol)"$'\n'" ${PROMPT_COLOR_OFF}"
+
+

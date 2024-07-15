@@ -1,0 +1,22 @@
+#-------------------------------------------------------------------------------
+# Basic Bash settings
+#-------------------------------------------------------------------------------
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+  PATH="$HOME/bin:$PATH"
+fi
+
+[ -e ~/.dircolors ] && eval $(dircolors -b ~/.dircolors) || 
+  eval $(dircolors -b)
+
+# History handling tmux/multiple terminals
+export HISTCONTROL=ignoredups:erasedups # avoid duplicates..
+shopt -s histappend # append history entries.
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND" # After each command, save and reload history
+
+# Bessere Pfeiltasten-Histotie. Berücksichtigt was getippt wurde
+# Pfeil nach oben
+bind '"\e[A": history-search-backward'
+
+# Pfeil nach unten
+bind '"\e[B": history-search-forward'
