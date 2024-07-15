@@ -1,6 +1,3 @@
-[user]
-    name = "dying-surfer"
-
 [alias]
     # one-line log
     l = log --pretty=format:"%C(yellow)%h%Creset\\ %as\\ %Cblue%an\\ %Creset%s\\%Cred%d" --graph --all --decorate-refs-exclude=*_webapps_*
