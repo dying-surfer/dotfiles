@@ -4,6 +4,7 @@ BASH_PLUGINS_HOME="${HOME}/.bash-plugins"
 
 # first we load core plugins
 source "$BASH_PLUGINS_HOME/core/const.bsh"
+source "$BASH_PLUGINS_HOME/core/functions.bsh"
 
 # next we load user plugins
 if [[ -n "$BASH_PLUGINS" ]]; then

@@ -1,0 +1,10 @@
+#!/bin/bash
+function theme (){
+  theme="$BASH_PLUGINS_HOME/themes/$1/bootstrap.bsh"
+  if [[ ! -e "$theme" ]]; then
+    printf "theme %s not found" "$1"
+    return 1;
+  fi
+
+  source "$theme"
+}
