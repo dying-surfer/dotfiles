@@ -1,1 +1,1 @@
-PS1="${PROMPT_GREEN}\u@\h:${YELLOW}\W> ${PROMPT_COLOR_OFF}"
+PS1="\u@\h:\w\$ "
