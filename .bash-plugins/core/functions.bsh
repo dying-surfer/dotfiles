@@ -1,5 +1,10 @@
 #!/bin/bash
 function theme (){
+  if [[ "$1" == '--list' || -z "$1" ]]; then
+    find "$BASH_PLUGINS_HOME/themes/" -maxdepth 1 -type d -printf "%P\n"
+    return 0
+  fi
+
   theme="$BASH_PLUGINS_HOME/themes/$1/bootstrap.bsh"
   if [[ ! -e "$theme" ]]; then
     printf "theme %s not found" "$1"
