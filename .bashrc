@@ -1,7 +1,8 @@
 BASH_PLUGINS=(
   base-settings
   utils
+  ms
 )
-BASH_THEME="default"
+BASH_THEME="ms"
 
 source ~/.bash-plugins/bootstrap.bsh
