@@ -3,6 +3,6 @@ BASH_PLUGINS=(
   utils
   ms
 )
-BASH_THEME="ms"
+BASH_THEME="nerd"
 
 source ~/.bash-plugins/bootstrap.bsh
