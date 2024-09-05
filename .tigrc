@@ -1,0 +1,87 @@
+set main-view	= line-number:no,interval=5 id:no date:relative-compact author:email-user commit-title:yes,graph,refs,overflow=no
+set refs-view	= line-number:no id:no date:relative-compact author:email-user ref commit-title
+set reflog-view	= line-number:no,interval=5 id:yes date:no,format="%Y-%m-%d" author:no commit-title:yes,refs,overflow=no
+set stash-view	= line-number:no,interval=5 id:no date:relative-compact author:email-user commit-title
+
+
+set tree-view	= line-number:no,interval=5 mode author:email-user file-size date:default,format="%Y-%m-%d" id:no file-name
+set blame-view	= id:yes,color file-name:auto author:email-user date:default,format="%Y-%m-%d" line-number:yes,interval=1 text
+set grep-view	= file-name:no line-number:yes,interval=1 text
+set status-view	= line-number:no,interval=5 status:short file-name
+
+
+
+set tab-size			= 4		# Number of spaces to use when expanding tabs
+set line-graphics		= auto	# Enum: ascii, default, utf-8, auto
+
+
+########################################################################################
+# TLDR Doku
+########################################################################################
+
+# Please see 'man tigrc' for a complete reference.
+
+# Settings
+# --------
+# Most of these settings can be toggleable, either via the toggle-*
+# actions or via the option menu (bound to `o` by default).
+
+# View settings
+#
+# Supported column types and their options:
+#
+#   author
+#    - display (enum) [no|full|abbreviated|email|email-user]
+#					: Show author information?
+#    - width (int)			: Fixed width when nonzero
+#    - maxwidth (int)			: Autosize limit
+#
+#   commit-title
+#    - display (bool)			: Show the commit title?
+#    - graph (enum) [no|v2|v1]		: Show the commit graph? (main view only)
+#    - refs (bool)			: Show branches, tags and remotes? (main view only)
+#    - overflow (boolint)		: Highlight overflows? Defaults to 50 when enabled.
+#
+#   date
+#    - display (enum) [no|default|relative|relative-compact|custom]
+#					: Show dates?
+#    - local (bool)			: Show local dates?
+#    - format (string)			: Custom strftime(3) format
+#					  Note: %Z is formatted as %z
+#    - width (int)			: Fixed width when nonzero
+#
+#   file-name
+#    - display (enum) [no|always|auto]	: Show file names?
+#    - width (int)			: Fixed width when nonzero
+#    - maxwidth (int)			: Autosize limit
+#
+#   file-size
+#    - display (enum) [no|default|units]
+#					: Show file sizes?
+#    - width (int)			: Fixed width when nonzero
+#
+#   id
+#    - display (bool)			: Show commit/tree ID?
+#    - width (int)			: Fixed width when nonzero
+#
+#   line-number
+#    - display (bool)			: Show line numbers?
+#    - interval (int)			: Interval between line numbers; defaults to 5
+#    - width (int)			: Fixed width when nonzero
+#
+#   mode
+#    - display (bool)			: Show file modes?
+#    - width (int)			: Fixed width when nonzero
+#
+#   ref
+#    - display (bool)			: Show ref names?
+#    - width (int)			: Fixed width when nonzero
+#    - maxwidth (int)			: Autosize limit
+#
+#   status
+#    - display (enum) [no|short|long]	: Show status label?
+#
+#   text
+#    - display (bool)			: Show text?
+#    - commit-title-overflow (boolint)	: Highlight overflow in log and diff view?
+#

@@ -34,6 +34,7 @@ install .dircolors
 install .git-prompt.bsh
 install .gitconfig
 install .gitignore
+install .tigrc
 install .tmux.conf
 install .vimrc
 install .zshrc
