@@ -1,3 +1,6 @@
+# Exit if non-interactive
+[[ ! $- == *i* ]] && exit 0
+
 BASH_PLUGINS=(
   base-settings
   utils
