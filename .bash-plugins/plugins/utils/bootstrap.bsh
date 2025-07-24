@@ -42,8 +42,8 @@ function tailgrep(){
   tail -n+1 -F "$2" | grep --line-buffered "$1"
 }
 
-# TMUX Home Session 
+# TMUX Home Session
 function tmuxa(){
-    tmux new-session -A -s main
+    local session_name="${1:-main}"
+    tmux new-session -A -s "$session_name"
 }
-
