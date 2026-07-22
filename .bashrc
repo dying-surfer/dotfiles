@@ -1,5 +1,5 @@
 # Exit if non-interactive
-[[ ! $- == *i* ]] && exit 0
+[[ ! $- == *i* ]] && return 0
 
 BASH_PLUGINS=(
   base-settings
